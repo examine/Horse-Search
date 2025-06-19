@@ -1,0 +1,25 @@
+# Node modules (frontend)
+horse-search-frontend/node_modules/
+
+# build output
+horse-search-frontend/build/
+horse-search-frontend/dist/
+
+# environment variables
+horse-search-frontend/.env
+
+# logs
+*.log
+
+# VS Code
+.vscode/
+
+# .NET build artifacts (backend)
+HorseSearchApi/bin/
+HorseSearchApi/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
