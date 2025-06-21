@@ -41,20 +41,17 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+    steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
 
       - name: Deploy to Azure Web App
-         id: deploy-to-webapp
-         uses: azure/webapps-deploy@v3
-         with:
-           app-name: 'horse-search-api'
-           slot-name: 'Production'
-         package: .net-app
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
-         slot-name: 'Production'
-          package: Backend/HorseSearch/publish
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'horse-search-api'
+          slot-name: 'Production'
+          package: .net-app
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
