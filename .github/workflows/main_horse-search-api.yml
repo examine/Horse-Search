@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: cd Backend/HorseSearch dotnet publish -c Release -o publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -54,5 +54,5 @@ jobs:
         with:
           app-name: 'horse-search-api'
           slot-name: 'Production'
-          package: .
+          package: Backend/HorseSearch/publish
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
