@@ -24,7 +24,7 @@ jobs:
           dotnet-version: '8.0'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build Backend/HorseSearch/HorseSearch.csproj --configuration Release
 
       - name: dotnet publish
         run: cd Backend/HorseSearch dotnet publish -c Release -o publish
