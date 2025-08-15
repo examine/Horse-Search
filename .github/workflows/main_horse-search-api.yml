@@ -53,5 +53,6 @@ jobs:
         with:
           app-name: 'horse-search-api'
           slot-name: 'Production'
-          package: .net-app/publish
+          package: .net-app
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
+
