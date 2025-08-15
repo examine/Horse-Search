@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "awIhRUdLW+s=",
+  "dgSpecHash": "+x2xDEYb3AA=",
   "success": true,
-  "projectFilePath": "C:\\Appl\\GITHUB\\Horse-Search\\Backend\\HorseSearch\\HorseSearch.csproj",
+  "projectFilePath": "c:\\Appl\\GITHUB\\Horse-Search\\Backend\\HorseSearch\\HorseSearch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vhor\\.nuget\\packages\\htmlagilitypack\\1.11.45\\htmlagilitypack.1.11.45.nupkg.sha512",
-    "C:\\Users\\vhor\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
-    "C:\\Users\\vhor\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\vhor\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
+    "C:\\Users\\vhor\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512"
   ],
   "logs": []
 }
