@@ -18,8 +18,12 @@ const App: React.FC = () => {
     setResults([]);
 
     try {
+      // const response = await fetch(
+      //   `https://horse-search-api.azurewebsites.net/api/search?horseName=${encodeURIComponent(horseName)}`
+      // );
+
       const response = await fetch(
-        `/api/search?horseName=${encodeURIComponent(horseName)}`
+        `https://horse-search-api.azurewebsites.net/api/search?horseName=${encodeURIComponent(horseName)}`
       );
 
       if (!response.ok) {
