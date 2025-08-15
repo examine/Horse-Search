@@ -137,24 +137,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vetle\\.nuget\\packages\\": {}
+    "C:\\Users\\vhor\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vetle\\Projects\\Backend\\HorseSearch\\HorseSearch.csproj",
+      "projectUniqueName": "c:\\Appl\\GITHUB\\Horse-Search\\Backend\\HorseSearch\\HorseSearch.csproj",
       "projectName": "HorseSearch",
-      "projectPath": "C:\\Users\\Vetle\\Projects\\Backend\\HorseSearch\\HorseSearch.csproj",
-      "packagesPath": "C:\\Users\\Vetle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vetle\\Projects\\Backend\\HorseSearch\\obj\\",
+      "projectPath": "c:\\Appl\\GITHUB\\Horse-Search\\Backend\\HorseSearch\\HorseSearch.csproj",
+      "packagesPath": "C:\\Users\\vhor\\.nuget\\packages\\",
+      "outputPath": "c:\\Appl\\GITHUB\\Horse-Search\\Backend\\HorseSearch\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Vetle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\vhor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -207,7 +214,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
