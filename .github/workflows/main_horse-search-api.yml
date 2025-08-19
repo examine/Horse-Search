@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,8 +23,8 @@ jobs:
       - name: Build with dotnet
         run: dotnet build Backend/HorseSearch/HorseSearch.csproj --configuration Release
 
-      - name: dotnet publish
-        run: cd Backend/HorseSearch && dotnet publish -c Release -o publish
+      - name: Publish the app
+        run: dotnet publish Backend/HorseSearch/HorseSearch.csproj -c Release -o Backend/HorseSearch/publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -43,6 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
+          path: .net-app    # Explicitly set output folder
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -50,5 +51,5 @@ jobs:
         with:
           app-name: 'horse-search-api'
           slot-name: 'Production'
-          package: .net-app
+          package: .net-app    # Use the correct path
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
