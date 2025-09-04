@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - horse-search-api
 
 on:
@@ -8,9 +11,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
-      contents: read
+      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -18,32 +21,39 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0'
+          dotnet-version: '8.x'
 
       - name: Build with dotnet
-        run: dotnet build Backend/HorseSearch/HorseSearch.csproj --configuration Release
+        run: dotnet build --configuration Release
 
-      - name: Publish the app
-        run: dotnet publish Backend/HorseSearch/HorseSearch.csproj -c Release -o Backend/HorseSearch/publish
+      - name: dotnet publish
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: Backend/HorseSearch/publish
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-          path: .net-app    # Explicitly set output folder
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9D14909228084B3BB3A10EB2943F54F8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_342D9116B91841D8A4081391BD2BE39F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C11B4A0A9C7A4941A948127F9C16BAA9 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -51,5 +61,5 @@ jobs:
         with:
           app-name: 'horse-search-api'
           slot-name: 'Production'
-          package: .net-app    # Use the correct path
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACB64D16B4564BC2AF2857A36EDC4EE5 }}
+          package: .
+          
