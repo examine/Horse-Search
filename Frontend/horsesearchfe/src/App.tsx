@@ -70,7 +70,7 @@ const App: React.FC = () => {
                 style={{
                   marginBottom: "1rem",
                   padding: "1rem",
-                  border: "1px solid #ccc",
+                  border: "1px solid #ccc", 
                   borderRadius: "8px",
                 }}
               >
